@@ -9,8 +9,14 @@ Feature: Kata Potter
     When I add a book to basket
     Then The basket price is 8 euros
 
-  Scenario: Discount of 5% for 2 books
+  Scenario: Discount of 5% for 2 books different books
     Given A basket
     When I add a book of volume 1 to basket
       And I add a book of volume 2 to basket
     Then The basket price is 15.20 euros
+
+  Scenario: Discount of 0% for 2 same books
+    Given A basket
+    When I add a book of volume 1 to basket
+    And I add a book of volume 1 to basket
+    Then The basket price is 16 euros
