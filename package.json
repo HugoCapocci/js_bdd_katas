@@ -1,0 +1,14 @@
+{
+  "name": "js_bdd",
+  "version": "1.0.0",
+  "description": "bdd exercice kata",
+  "main": "index.js",
+  "author": "Hugo CAPOCCI <h.capocci@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "cucumber": "cucumber-js"
+  },
+  "devDependencies": {
+    "cucumber": "4.2.1"
+  }
+}
