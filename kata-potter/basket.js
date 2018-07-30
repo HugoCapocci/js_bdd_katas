@@ -17,6 +17,10 @@ module.exports = class Basket {
       return 0.95 * sum;
     else if (uniqueVolumes.length === 3)
       return 0.90 * sum;
+    else if (uniqueVolumes.length === 4)
+      return 0.80 * sum;
+    else if (uniqueVolumes.length === 5)
+      return 0.75 * sum;
     return sum;
   }
 }
