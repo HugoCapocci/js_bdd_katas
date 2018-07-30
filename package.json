@@ -6,7 +6,7 @@
   "author": "Hugo CAPOCCI <h.capocci@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "cucumber": "cucumber-js"
+    "kata_potter": "cucumber-js ./kata_potter/features/ -r ./kata_potter/steps"
   },
   "devDependencies": {
     "cucumber": "4.2.1"
