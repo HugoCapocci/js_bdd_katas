@@ -1,7 +1,7 @@
-const { Given, When, Then } = require('cucumber');
+const { Given, Then } = require('cucumber');
 const { expect } = require('chai');
 
-const Book = require('../book');
+const Book = require('../kata-potter/book');
 
 let book;
 Given('One book', function () {
