@@ -1,11 +1,15 @@
-const { Given, When, Then } = require('cucumber')
+const { Given, When, Then } = require('cucumber');
+const { expect } = require('chai');
 
+const Book = require('../book');
+
+let book;
 Given('One book', function () {
   // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+  book = new Book();
 });
 
 Then('The book price is {int} euros', function (int) {
   // Write code here that turns the phrase above into concrete actions
-  return 'pending';
+  expect(book.getPrice()).to.equal(int);
 });
