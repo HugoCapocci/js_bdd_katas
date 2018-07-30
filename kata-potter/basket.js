@@ -8,8 +8,11 @@ module.exports = class Basket {
   }
 
   getPrice() {
-    return this.books.reduce((sum, book) => {
+    const sum = this.books.reduce((sum, book) => {
       return sum + book.getPrice();
     }, 0);
+    if (this.books.length === 2)
+      return 0.95 * sum;
+    return sum;
   }
 }

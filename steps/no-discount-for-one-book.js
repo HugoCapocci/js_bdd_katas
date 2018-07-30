@@ -10,6 +10,7 @@ Given('A basket', function () {
   // Write code here that turns the phrase above into concrete actions
   basket = new Basket();
 });
+
 When('I add a book to basket', function () {
   // Write code here that turns the phrase above into concrete actions
   basket.addBook(new Book());
@@ -18,4 +19,14 @@ When('I add a book to basket', function () {
 Then('The basket price is {int} euros', function (int) {
   // Write code here that turns the phrase above into concrete actions
   expect(basket.getPrice()).to.equal(int);
+});
+
+
+When('I add a book of volume {int} to basket', function (int) {
+  // Write code here that turns the phrase above into concrete actions
+  basket.addBook(new Book(int));
+});
+
+Then('The basket price is {float} euros', function (float) {
+  expect(basket.getPrice()).to.equal(float);
 });
