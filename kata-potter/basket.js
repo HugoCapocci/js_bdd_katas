@@ -15,6 +15,8 @@ module.exports = class Basket {
     , 0);
     if (uniqueVolumes.length === 2)
       return 0.95 * sum;
+    else if (uniqueVolumes.length === 3)
+      return 0.90 * sum;
     return sum;
   }
 }
