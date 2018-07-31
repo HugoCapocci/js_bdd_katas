@@ -1,7 +1,14 @@
+const discounts = {
+  1: 1,
+  2: 0.95,
+  3: 0.90,
+  4: 0.80,
+  5: 0.75
+};
+
 module.exports = class Basket {
   constructor() {
     this.books = [];
-    this.sets = [new Set()];
     this.booksByVolume = {};
   }
 
@@ -15,32 +22,37 @@ module.exports = class Basket {
   }
 
   getSets() {
+    const sets = [new Set()];
     const volumes = this.books.map(b => b.volume);
     volumes.forEach(volume => {
-      if(this.sets[0].has(volume)) {
-        if(!this.sets[1]) this.sets.push(new Set([volume]));
-        else this.sets[1].add(volume);
+      if(sets[0].has(volume)) {
+        if(!sets[1]) {
+          sets.push(new Set([volume]));
+        } else {
+          sets[1].add(volume);
+        }
       } else {
-        this.sets[0].add(volume);
+        sets[0].add(volume);
       }
     });
-    return this.sets.filter(set => set.size > 1);
+    return sets.filter(set => set.size > 1);
   }
 
   getPrice() {
+    const bookSets = this.getSets();
+    if (bookSets.length > 1) {
+      let setSum = 0;
+      console.log('bookSets: ', bookSets);
+      for (let bookSet of bookSets) {
+        setSum += bookSet.size * 8 * discounts[bookSet.size];
+      }
+      return setSum;
+    }
     const volumes = this.books.map(b => b.volume);
     const uniqueVolumes = volumes.filter((volume, pos) => volumes.indexOf(volume) == pos);
     const sum = this.books.reduce((sum, book) =>
       sum + book.getPrice()
     , 0);
-    if (uniqueVolumes.length === 2)
-      return 0.95 * sum;
-    else if (uniqueVolumes.length === 3)
-      return 0.90 * sum;
-    else if (uniqueVolumes.length === 4)
-      return 0.80 * sum;
-    else if (uniqueVolumes.length === 5)
-      return 0.75 * sum;
-    return sum;
+    return sum * discounts[uniqueVolumes.length];
   }
 }
