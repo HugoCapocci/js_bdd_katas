@@ -33,12 +33,7 @@ module.exports = class Basket {
   }
 
   getPrice() {
-    const bookSets = this.getSets();
-    let sum = 0;
-    for (let bookSet of bookSets) {
-      sum += bookSet.size * 8 * discounts[bookSet.size];
-    }
-    return sum;
-
+    return this.getSets()
+    .reduce((sum, bookSet) => sum + bookSet.size * 8 * discounts[bookSet.size], 0);
   }
 }
