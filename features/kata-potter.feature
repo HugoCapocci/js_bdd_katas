@@ -50,4 +50,5 @@ Feature: Kata Potter
     When I add 1 books of volume 1 to basket
     And I add 2 books of volume 2 to basket
     And I add 2 books of volume 3 to basket
-    Then The basket price is 36.80 euros
+    Then 2 sets are created
+    And The basket price is 36.80 euros

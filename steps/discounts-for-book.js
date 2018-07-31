@@ -35,3 +35,7 @@ When('I add {int} books of volume {int} to basket', function (count, volume) {
 Then('The basket price is {float} euros', function (float) {
   expect(basket.getPrice()).to.equal(float);
 });
+
+Then('{int} sets are created', function (int) {
+  expect(basket.getSets().length).to.equal(int);
+});
