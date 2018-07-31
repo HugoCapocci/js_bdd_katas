@@ -21,10 +21,15 @@ Then('The basket price is {int} euros', function (int) {
   expect(basket.getPrice()).to.equal(int);
 });
 
-
-When('I add a book of volume {int} to basket', function (int) {
+When('I add a book of volume {int} to basket', function (volume) {
   // Write code here that turns the phrase above into concrete actions
-  basket.addBook(new Book(int));
+  basket.addBook(new Book(volume));
+});
+
+When('I add {int} books of volume {int} to basket', function (count, volume) {
+  for (let i=0; i<count; i++) {
+    basket.addBook(new Book(volume));
+  }
 });
 
 Then('The basket price is {float} euros', function (float) {
