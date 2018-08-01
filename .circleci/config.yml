@@ -6,8 +6,14 @@ jobs:
     steps:
       - checkout
       - run:
-          name: install
-          command: yarn 
+          name: install project
+          command: yarn
+      - run:
+          name: install codecov
+          command: sudo npm install -g codecov
+      - run:
+          name: set up
+          command: mkdir -p .nyc_output
       - run:
           name: test
-          command: yarn coverage
+          command: yarn report-coverage
