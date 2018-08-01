@@ -6,10 +6,17 @@
   "author": "Hugo CAPOCCI <h.capocci@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "cucumber": "cucumber-js ./features/ -r ./steps"
+    "cucumber": "cucumber-js ./features/ -r ./steps",
+    "coverage": "nyc --reporter=html --reporter=text yarn cucumber"
   },
   "devDependencies": {
     "chai": "4.1.2",
-    "cucumber": "4.2.1"
+    "cucumber": "4.2.1",
+    "nyc": "12.0.2"
+  },
+  "nyc": {
+    "include": [
+      "./kata-potter/**/*.js"
+    ]
   }
 }
