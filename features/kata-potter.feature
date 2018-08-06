@@ -21,12 +21,17 @@ Feature: Kata Potter
     And I add a book of volume 1 to basket
     Then The basket price is 16 euros
 
-  Scenario: Discount of 10% for 3 different books
+  Scenario Outline: Discount of 10% for 3 different books
     Given A basket
-    When I add a book of volume 1 to basket
-    And I add a book of volume 2 to basket
-    And I add a book of volume 3 to basket
+    When I add a book of volume <volA> to basket
+    And I add a book of volume <volB> to basket
+    And I add a book of volume <volC> to basket
     Then The basket price is 21.60 euros
+
+      | volA | volB | volC |
+      |  1   |   2  |   3  |
+      |  2   |   3  |   4  |
+      |  3   |   4  |   5  |
 
   Scenario: Discount of 20% for 4 different books
     Given A basket
