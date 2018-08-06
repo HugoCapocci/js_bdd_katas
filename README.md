@@ -1,6 +1,8 @@
 BDD Katas
 =========
 
+[![codecov](https://codecov.io/gh/HugoCapocci/js_bdd_katas/branch/master/graph/badge.svg)](https://codecov.io/gh/HugoCapocci/js_bdd_katas)
+
 #1 Kata Potter
 --------------
 

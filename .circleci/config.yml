@@ -16,4 +16,4 @@ jobs:
           command: mkdir -p .nyc_output
       - run:
           name: test
-          command: yarn report-coverage
+          command: yarn report-coverage -t 1af07dbe-b037-4b84-91b4-969715ce4875
