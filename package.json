@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "chai": "4.1.2",
-    "codecov": "3.0.4",
+    "codecov": "3.6.5",
     "cucumber": "4.2.1",
     "nyc": "12.0.2"
   },
